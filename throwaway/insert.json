@@ -1,0 +1,17 @@
+/*db.collectionName.insertOne(
+{
+    "_id": "ricn2irnc2irn2i5nn",
+    "date": "2020-11-17",
+    "food": [
+        { "time": "morning", "meal": "yoguhurt" },
+        { "time": "afternoon", "meal": "toast" },
+        { "time": "evening", "meal": "chips" }
+    ],
+    "flares": [
+        { "area": "left-arm", "scale": 0 },
+        { "area": "right-arm", "scale": 6 }
+    ]
+}
+)*/
+
+
