@@ -29,6 +29,23 @@
   text-align: center;
 }
 
+.link-to-single-blog {
+  text-decoration: none;
+  color: black;
+}
+
+/* AddNewBlog */
+
+.description-box, .description-box-container{
+  padding-top: 1em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.submit-thoughts-btn, .submit-thoughts-btn-container{
+  text-align: center
+}
+
 /* FOOD */
 
 .foods-ul {

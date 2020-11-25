@@ -3,38 +3,59 @@ import { postBlog } from '../Api.jsx';
 
 export default class AddBlog extends Component {
   state = {
-    description: []
+    description: ""
   }
+  
+  handleChange = event => {
+    this.setState({ description: event.target.value})
+
+  }
+  
+  handleSubmit = event => {
+    event.preventDefault();
+    const { description } = this.state;
+    
+    // postBlog(description).then(newBlog => {
+    //   this.setState({ description: ""})
+    // })
+  }
+
+  
+  
+   /* handleSubmit = event => {
+    event.preventDefault();
+    const { body, username } = this.state;
+    const { newPostedComment, articleId } = this.props;
+    postComment(body, articleId, username).then(newComment => {
+      newPostedComment(newComment);
+      this.setState({ body: "" });
+    });
+  }; */
   
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
-            <textarea placeholder="Say what's on your mind..."></textarea>
-            <button>Submit your thoughts!</button>
+            <div className="description-box-container">
+            <textarea onChange={this.handleChange}
+                      placeholder="Say what's on your mind..." 
+                      className="description-box"
+                      rows="30"
+                      cols="120"
+                      type="text"
+                      id="body"
+                      value={this.state.description}>
+            </textarea>
+            </div>
+            <div className="submit-thoughts-btn-container">
+            <button className="submit-thoughts-btn">Submit your thoughts!</button>
+        
+            </div>
           </label>
         </form>
-      <div>
+      </div>
     )    
   }
 }
 
-
-{/* <form onSubmit={this.handleSubmit}>
-          <label>
-            <textarea
-              className={styles.textArea}
-              rows="8"
-              cols="60"
-              type="text"
-              id="body"
-              placeholder="Say what's on your mind..."
-              value={this.state.body}
-              onChange={this.handleChange}
-              required
-            ></textarea>
-            <br></br>
-            <button className={styles.postbtn}>Post it!</button>
-          </label>
-        </form> */}

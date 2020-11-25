@@ -23,15 +23,17 @@ export default class Blog extends Component {
       const {blogs} = this.state;
         return (
       <div className="blog-container">
+        <Link to={`/blog/new`}>
         <button className="create-blog-button">Create new blog</button>
+        </Link>
           <p className="blog-header">Blogs</p>
             <ul className="blog-ul">
              {blogs.map((blog) => (
                <li key={blog._id}>
-                 <Link to={`/blog/${blog._id}`} style={{textDecoration: "none"}}>
+                 <Link to={`/blog/${blog._id}`} className="link-to-single-blog">
                  <div className="blog-title">{new Date(blog.title).toLocaleDateString()}</div>
-                 <div className="blog-description">{blog.description}</div>
                  </Link>
+                 <div className="blog-description">{blog.description}</div>
                </li>
             ))}
           </ul> 
