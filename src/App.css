@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-{/* BLOG */}
+/* BLOG */
+
+.blog-container {
+  text-align: center;
+}
 
 .blog-header {
     text-align: center;
@@ -11,7 +15,7 @@
 }
 
 .blog-ul {
-    list-style: none;
+    list-style-type: none;
 }
 
 .blog-title {
@@ -20,6 +24,22 @@
 
 .blog-description {
   text-align: center;
+}
+
+/* FOOD */
+
+.foods-ul {
+  list-style-type: none;
+}
+
+.breakfast-title, .lunch-title, .dinner-title, .snacks-title {
+  text-align: center;
+  padding-bottom: 0.1em;
+}
+
+.breakfast-item, .lunch-item, .dinner-item, .snacks-item {
+  text-align: center;
+  padding-bottom: 1em;
 }
 
 
