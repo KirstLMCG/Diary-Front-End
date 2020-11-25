@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-// import { getBlogs } from '../api.jsx'
-import axios from 'axios'
+import { Link } from '@reach/router'
+import { getBlogs, getBlog } from '../Api.jsx'
+
 
 export default class Blog extends Component {
   state = {
@@ -8,7 +9,7 @@ export default class Blog extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://f2f1c0aaf7de41d4bc57354de1d10938.vfs.cloud9.eu-west-1.amazonaws.com/blog`)
+    getBlogs()
       .then(res => {
           // console.log(res.data)
           this.setState({blogs: res.data})
@@ -22,19 +23,19 @@ export default class Blog extends Component {
       const {blogs} = this.state;
         return (
       <div className="blog-container">
-      <p className="blog-header">Blogs</p>
-      <p className="blog-description">Hi</p>
-        <ul className="blog-ul">
-          {blogs.map((blog) => (
-            <li key={blog.id}>
-              <div className="blog-title">{blog.title}</div>
-              <div className="blog-description">{blog.description}</div>
-            </li>
+        <button className="create-blog-button">Create new blog</button>
+          <p className="blog-header">Blogs</p>
+            <ul className="blog-ul">
+             {blogs.map((blog) => (
+               <li key={blog._id}>
+                 <Link to={`/blog/${blog._id}`} style={{textDecoration: "none"}}>
+                 <div className="blog-title">{new Date(blog.title).toLocaleDateString()}</div>
+                 <div className="blog-description">{blog.description}</div>
+                 </Link>
+               </li>
             ))}
-        </ul> 
+          </ul> 
       </div>
     )
   }
 }
-
-

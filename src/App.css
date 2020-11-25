@@ -4,8 +4,11 @@
 
 /* BLOG */
 
-.blog-container {
+.create-blog-button {
   text-align: center;
+  padding: 1em;
+  margin-top: 3em;
+  margin-left: 3em;
 }
 
 .blog-header {
