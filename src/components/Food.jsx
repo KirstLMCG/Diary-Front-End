@@ -26,14 +26,14 @@ export default class Food extends Component {
               {foods.map((food) => (
                 <div>
                 <li key={food.id}>
-                  <div className="breakfast-title">Breakfast:</div>
-                  <div className="breakfast-item">{food.breakfast}</div>
-                  <div className="lunch-title">Lunch:</div>
-                  <div className="lunch-item">{food.lunch}</div>
-                  <div className="dinner-title">Dinner: </div>
-                  <div className="dinner-item">{food.dinner}</div>
-                  <div className="snacks-title">Snacks:</div>
-                  <div className="snacks-item">{food.snacks}</div> 
+                  <div className="food-title">Breakfast:</div>
+                  <div className="food-item">{food.breakfast}</div>
+                  <div className="food-title">Lunch:</div>
+                  <div className="food-item">{food.lunch}</div>
+                  <div className="food-title">Dinner: </div>
+                  <div className="food-item">{food.dinner}</div>
+                  <div className="food-title">Snacks:</div>
+                  <div className="food-item">{food.snacks}</div> 
                 </li>
                 </div>
               ))}
