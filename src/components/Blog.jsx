@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { getBlogs } from '../api.jsx'
 import axios from 'axios'
 
-export default class Blog extends React.Component {
+export default class Blog extends Component {
   state = {
     blogs: []
   }
