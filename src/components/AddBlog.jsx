@@ -13,35 +13,28 @@ export default class AddBlog extends Component {
 
   }
   
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const { description } = this.state
-  //     postBlog(description).then(newBlog => {
-  //     this.setState({description: [...this.state.description], description: ''})
-  //   })
-    
-  // }
-  
   handleSubmit = event => {
     event.preventDefault();
-    const { description } = this.state;
-    const { newPostedBlog } = this.props;
-    postBlog(description).then(newBlog => {
-      newPostedBlog(newBlog)
-      this.setState({description: ""})
-    }).catch(err => {
-      console.log(err)
+    const { description } = this.state
+      postBlog(description).then(newBlog => {
+      this.setState({description: [...this.state.description], description: ''})
     })
+    
   }
-
   
-  //   newPostedComment = addedNewComment => {
-  //   this.setState(currentState => {
-  //     return {
-  //       comments: [addedNewComment, ...currentState.comments]
-  //     };
-  //   });
-  // };
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const { description } = this.state;
+  //   const { newPostedBlog } = this.props;
+  //   postBlog(description).then(newBlog => {
+  //     newPostedBlog(newBlog)
+  //     this.setState({description: ""})
+  //   }).catch(err => {
+  //     console.log(err)
+  //   })
+  // }
+
+
 
   render() {
     return (

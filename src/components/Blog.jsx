@@ -40,6 +40,7 @@ export default class Blog extends Component {
         <button className="create-blog-button">Create new blog</button>
         </Link>
           <p className="blog-header">Blogs</p>
+         {/* // <AddBlog newPostedBlog={this.newPostedBlog} /> */}
             <ul className="blog-ul">
              {blogs.map((blog) => (
                <li key={blog._id}>
