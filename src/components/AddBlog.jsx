@@ -7,31 +7,42 @@ export default class AddBlog extends Component {
   }
   
   handleChange = event => {
+    event.preventDefault()
+    console.log(event.target.value)
     this.setState({ description: event.target.value})
 
   }
   
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const { description } = this.state
+  //     postBlog(description).then(newBlog => {
+  //     this.setState({description: [...this.state.description], description: ''})
+  //   })
+    
+  // }
+  
   handleSubmit = event => {
     event.preventDefault();
     const { description } = this.state;
-    
-    // postBlog(description).then(newBlog => {
-    //   this.setState({ description: ""})
-    // })
+    const { newPostedBlog } = this.props;
+    postBlog(description).then(newBlog => {
+      newPostedBlog(newBlog)
+      this.setState({description: ""})
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   
-  
-   /* handleSubmit = event => {
-    event.preventDefault();
-    const { body, username } = this.state;
-    const { newPostedComment, articleId } = this.props;
-    postComment(body, articleId, username).then(newComment => {
-      newPostedComment(newComment);
-      this.setState({ body: "" });
-    });
-  }; */
-  
+  //   newPostedComment = addedNewComment => {
+  //   this.setState(currentState => {
+  //     return {
+  //       comments: [addedNewComment, ...currentState.comments]
+  //     };
+  //   });
+  // };
+
   render() {
     return (
       <div>
@@ -48,11 +59,11 @@ export default class AddBlog extends Component {
                       value={this.state.description}>
             </textarea>
             </div>
-            <div className="submit-thoughts-btn-container">
-            <button className="submit-thoughts-btn">Submit your thoughts!</button>
-        
-            </div>
+            
           </label>
+          <div className="submit-thoughts-btn-container">
+          <button type='submit' className="submit-thoughts-btn"> Submit your thoughts! </button>
+          </div>
         </form>
       </div>
     )    

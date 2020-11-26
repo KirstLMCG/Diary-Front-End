@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from '@reach/router'
-import { getBlogs, getBlog } from '../Api.jsx'
+import { getBlogs } from '../Api.jsx'
+import AddBlog from '../components/AddBlog.jsx'
 
 
 export default class Blog extends Component {
@@ -18,7 +19,19 @@ export default class Blog extends Component {
           console.log(err)
       })
   }
-
+  
+  newPostedBlog = addedNewBlog => {
+    this.setState(currentState => {
+      return {
+        blogs: [addedNewBlog, ...currentState.blogs]
+      };
+    });
+  };
+  
+  onClick = () => {
+    
+  } 
+  
   render() {
       const {blogs} = this.state;
         return (
@@ -34,6 +47,9 @@ export default class Blog extends Component {
                  <div className="blog-title">{new Date(blog.title).toLocaleDateString()}</div>
                  </Link>
                  <div className="blog-description">{blog.description}</div>
+                 <div className="diary-btn-container">
+                 <button className='diary-btn' onClick={this.handleClick}> Diary </button>
+                 </div>
                </li>
             ))}
           </ul> 

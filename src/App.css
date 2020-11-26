@@ -29,6 +29,12 @@
   text-align: center;
 }
 
+.diary-btn-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .link-to-single-blog {
   text-decoration: none;
   color: black;
