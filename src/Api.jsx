@@ -22,3 +22,9 @@ export const postBlog = (description) => {
   })
 }
 
+export const deleteBlog = id => {
+  const baseURL = `https://f2f1c0aaf7de41d4bc57354de1d10938.vfs.cloud9.eu-west-1.amazonaws.com/blog/${id}`;
+  return axios.delete(baseURL).then(res => {
+    return res.data
+  })
+}

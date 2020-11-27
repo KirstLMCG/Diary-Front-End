@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from '@reach/router'
-import { getBlogs } from '../Api.jsx'
+import { getBlogs, deleteBlog } from '../Api.jsx'
 import AddBlog from '../components/AddBlog.jsx'
 
 
@@ -28,12 +28,34 @@ export default class Blog extends Component {
     });
   };
   
-  onClick = () => {
+  // handleDelete = (id) => {
+  //   const {blogs} = this.state;
+  //   deleteBlog(id);
     
-  } 
+  //   const deletedBlogs = blogs.filter(
+  //     blog => blog.id !== id)
+      
+  //     this.setState({blogs: deletedBlogs})
+    
+  // } 
+  
+   handleDelete = (id) => {
+    deleteBlog(id)
+    this.setState(prevState => {
+    blogs: prevState.blogs.filter(blog => blog !== id)
+   })
+}
   
   render() {
       const {blogs} = this.state;
+      
+       if (blogs === undefined) {
+         return (
+           <div>
+           <p>You have no blog entries, why not create one?</p>
+           </div>
+           )
+      } else {
         return (
       <div className="blog-container">
         <Link to={`/blog/new`}>
@@ -51,7 +73,8 @@ export default class Blog extends Component {
                  </Link>
                  <div className="blog-description">{blog.description}</div>
                  <div className="diary-btn-container">
-                 <button className='diary-btn' onClick={this.handleClick}> Diary </button>
+                 <button className='diary-btn'> Delete </button>
+                {/* onClick={this.handleDelete(blog._id)} */}
                  </div>
                  </div>
                </li>
@@ -60,4 +83,5 @@ export default class Blog extends Component {
       </div>
     )
   }
+}
 }
