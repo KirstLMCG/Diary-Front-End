@@ -12,7 +12,7 @@ function App() {
     <div>
       <Router>
         <Blog path='/' />
-        <Blog path='/blog' />
+        <Blog path='/diary' />
         <SingleBlog path='/blog/:id' />
         <AddBlog path='/blog/new' />
         <Food path='/foodtracking' />

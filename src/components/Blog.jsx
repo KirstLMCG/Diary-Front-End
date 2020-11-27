@@ -37,9 +37,9 @@ export default class Blog extends Component {
         return (
       <div className="blog-container">
         <Link to={`/blog/new`}>
-        <button className="create-blog-button">Create new blog</button>
+        <button className="create-blog-button">Add New Diary Entry</button>
         </Link>
-          <p className="blog-header">Blogs</p>
+          <p className="blog-header">All Diary Entries</p>
          {/* // <AddBlog newPostedBlog={this.newPostedBlog} /> */}
             <ul className="blog-ul">
              {blogs.map((blog) => (

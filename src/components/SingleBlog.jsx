@@ -34,26 +34,3 @@ export default class SingleBlog extends Component {
 }
 
 
-  { /*
-      <main>
-        <div className={styles.fullarticle} key="article">
-          <h2 className={styles.articletitle}> {article.title} </h2>
-          <div className={styles.publishedby}>
-            <em>
-              Published by <b>{`${article.author}`} </b> on{" "}
-              {new Date(article.created_at).toLocaleDateString()}
-            </em>
-          </div>
-          <br></br>
-          <section className={styles.articlebody}>{article.body}</section>
-          <div className={styles.votes}>
-            <Voting article_id={article.article_id} votes={article.votes} />
-          </div>
-        </div>
-        <div className={styles.comments}>
-          <Comments article_id={article.article_id} />
-        </div>
-      </main>
-    );
-  }
-} */}
