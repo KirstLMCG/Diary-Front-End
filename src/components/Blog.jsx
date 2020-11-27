@@ -41,15 +41,18 @@ export default class Blog extends Component {
         </Link>
           <p className="blog-header">All Diary Entries</p>
          {/* // <AddBlog newPostedBlog={this.newPostedBlog} /> */}
+            
             <ul className="blog-ul">
              {blogs.map((blog) => (
                <li key={blog._id}>
+               <div className="diary-entry-container">
                  <Link to={`/blog/${blog._id}`} className="link-to-single-blog">
                  <div className="blog-title">{new Date(blog.title).toLocaleDateString()}</div>
                  </Link>
                  <div className="blog-description">{blog.description}</div>
                  <div className="diary-btn-container">
                  <button className='diary-btn' onClick={this.handleClick}> Diary </button>
+                 </div>
                  </div>
                </li>
             ))}

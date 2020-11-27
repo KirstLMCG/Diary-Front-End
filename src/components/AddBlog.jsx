@@ -63,7 +63,7 @@ export default class AddBlog extends Component {
       // Uncomment the below line and comment out the line underneath that one if you need to see this page after creating a blog on today's date!
       // if (true)
       if (latestBlogDate.slice(0, 10) === new Date().toISOString().slice(0, 10))
-        { return <Fragment> <span> You have already created a diary entry for today. View it </span> <Link to={`/blog/${latestBlogId}`}>here</Link>. </Fragment> }
+        { return <Fragment> <div className='view-diary-entry'> <span> You have already created a diary entry for today. View it </span> <Link to={`/blog/${latestBlogId}`}>here</Link>. </div> </Fragment> }
       else if (blogId !== "")
         { return <Redirect noThrow to={`/blog/${blogId}`}/> }
       return (

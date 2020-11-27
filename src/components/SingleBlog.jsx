@@ -22,12 +22,14 @@ export default class SingleBlog extends Component {
 
       return (
         <main>
-          <div className="blog-title">
+          <div className="single-blog-container">
+          <div className="single-blog-title">
              {new Date(blog.title).toLocaleDateString()}
           </div>
-            <div className="blog-description"> 
+            <div className="single-blog-description"> 
              {blog.description}
             </div> 
+            </div>
         </main>
       )
     }
