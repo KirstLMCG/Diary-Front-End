@@ -35,14 +35,9 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    /*padding: 2em 5em 2em 5em;*/
+
 }
 
-/*padding: 25px 50px 75px 100px;*/
-/*top padding is 25px*/
-/*right padding is 50px*/
-/*bottom padding is 75px*/
-/*left padding is 100px*/
 
 .blog-title {
   text-align: center;
@@ -113,6 +108,12 @@
     border-radius: 25px;
     box-shadow: 0 0 10px 4px rgba(63, 62, 62, 0.521);
  
+}
+
+.single-blog-back-btn {
+  padding: 1em;
+  margin-top: 3em;
+  margin-left: 3em;
 }
 
 /* FOOD */
