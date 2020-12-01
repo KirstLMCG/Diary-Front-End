@@ -12,7 +12,7 @@ export default class Blog extends Component {
   componentDidMount() {
     getBlogs()
       .then(res => {
-          // console.log(res.data)
+           console.log(res.data[0])
           this.setState({blogs: res.data})
       })
       .catch(err => {
@@ -27,17 +27,6 @@ export default class Blog extends Component {
       };
     });
   };
-  
-  // handleDelete = (id) => {
-  //   const {blogs} = this.state;
-  //   deleteBlog(id);
-    
-  //   const deletedBlogs = blogs.filter(
-  //     blog => blog.id !== id)
-      
-  //     this.setState({blogs: deletedBlogs})
-    
-  // } 
   
    handleDelete = (id) => {
     deleteBlog(id)
@@ -72,10 +61,7 @@ export default class Blog extends Component {
                  <div className="blog-title">{new Date(blog.title).toLocaleDateString()}</div>
                  </Link>
                  <div className="blog-description">{blog.description}</div>
-                 <div className="diary-btn-container">
-                 <button className='diary-btn'> Delete </button>
-                {/* onClick={this.handleDelete(blog._id)} */}
-                 </div>
+
                  </div>
                </li>
             ))}

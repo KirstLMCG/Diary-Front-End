@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { getBlog } from '../Api.jsx'
+import { getBlog, getFood } from '../Api.jsx'
 import { Link } from '@reach/router'
+import Flare from '../components/Flare.jsx'
+import Food from '../components/Food.jsx'
 
 export default class SingleBlog extends Component {
   state = {
@@ -10,13 +12,24 @@ export default class SingleBlog extends Component {
   componentDidMount() {
       getBlog(this.props.id)
         .then(res => {
-            console.log(res.data._id)
+            // console.log(this.props.id)
           this.setState({ blog: res.data})
         })
         .catch(err => {
             console.log(err)
         })
   }
+  
+    // handleDelete = (id) => {
+  //   const {blogs} = this.state;
+  //   deleteBlog(id);
+    
+  //   const deletedBlogs = blogs.filter(
+  //     blog => blog.id !== id)
+      
+  //     this.setState({blogs: deletedBlogs})
+    
+  // } 
   
     render() {
       const { blog } = this.state; 
@@ -34,28 +47,15 @@ export default class SingleBlog extends Component {
              {blog.description}
             </div> 
     </div>
-    <div className='row'>
-   <div className='column_one'> Flare scores:
-      <ul>
-         <li className="body-li">Head:  2</li>
-         <li className="body-li">Neck:  4</li>
-         <li className="body-li">Hands:  6</li>
-         <li className="body-li">Arms:  8</li>
-         <li className="body-li">Stomach:  2</li>
-         <li className="body-li">Back:  7</li>
-         <li className="body-li">Legs:  3</li>
-         <li className="body-li">Feet:  9</li>
-        
-      </ul>
-   </div>
-   <div className="column_two">
-   <p className="single-food-item"><b>Breakfast:</b> Sainsbury's free from honey hoop cereal</p>
-   <p className="single-food-item"><b>Lunch:</b> Vegetable Soup with one slice of bread</p>
-   <p className="single-food-item"><b>Dinner:</b> BBQ Chicken breast, Cauliflower, Spinach and new potatoes</p>
-   <p className="single-food-item"><b>Snavks:</b> N/A</p>
-   
-   </div>
-   </div>
+    <div class='row'>
+      <div className='column-one'>
+        <Flare blogId={this.props.id}/>
+       </div>
+       
+      <div className="column-two">
+        <Food blogId={this.props.id}/>
+      </div>
+    </div>
   </main>
       )
     }

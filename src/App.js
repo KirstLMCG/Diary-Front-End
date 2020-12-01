@@ -9,7 +9,7 @@ import AddBlog from './components/AddBlog.jsx'
 
 function App() {
   return (
-    <div>
+    <div className='body'>
       <Router>
         <Blog path='/' />
         <Blog path='/diary' />

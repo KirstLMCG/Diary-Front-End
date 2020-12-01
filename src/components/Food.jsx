@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, {Fragment, Component } from 'react';
 import axios from 'axios';
+import { getFoodForBlogId } from '../Api.jsx'
+import FoodForm from '../components/FoodForm.jsx'
 
 export default class Food extends Component {
     state = {
@@ -7,9 +9,8 @@ export default class Food extends Component {
     }
     
     componentDidMount() {
-        axios.get(`https://f2f1c0aaf7de41d4bc57354de1d10938.vfs.cloud9.eu-west-1.amazonaws.com/foodtracking`)
-        .then(res => {
-         // console.log(res.data)
+        getFoodForBlogId(this.props.blogId).then(res => {
+          console.log(res.data)
           this.setState({foods: res.data})
         })
         .catch(err => {
@@ -20,19 +21,29 @@ export default class Food extends Component {
     render() {
       const { foods } = this.state;
       
+       if (foods.length === 0 || foods === 'undefined')
+          { return (
+            <Fragment>
+            <div>
+             There are no foods recorded today, record them below.
+            </div>
+            <FoodForm blogId={this.props.blogId}/>
+            </Fragment>
+         ) }
+          
         return (
           <div>
             <ul className="foods-ul">
               {foods.map((food) => (
                 <div>
                 <li key={food.id}>
-                  <div className="food-title">Breakfast:</div>
+                  <div className="food-title"><strong>Breakfast:</strong></div>
                   <div className="food-item">{food.breakfast}</div>
-                  <div className="food-title">Lunch:</div>
+                  <div className="food-title"><strong>Lunch:</strong></div>
                   <div className="food-item">{food.lunch}</div>
-                  <div className="food-title">Dinner: </div>
+                  <div className="food-title"><strong>Dinner:</strong></div>
                   <div className="food-item">{food.dinner}</div>
-                  <div className="food-title">Snacks:</div>
+                  <div className="food-title"><strong>Snacks:</strong></div>
                   <div className="food-item">{food.snacks}</div> 
                 </li>
                 </div>
